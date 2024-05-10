@@ -1,5 +1,5 @@
 ---
-title: Lecția 2
+title: Lectia 2
 description: Plan de lecție pentru cursul GoIT
 tags:
   - plan
@@ -34,13 +34,6 @@ Aplicațiile de tip consolă sunt programe care interacționează cu utilizatori
 
 - Modulul readline este inclus în Node.js standard, deci nu este necesară o instalare suplimentară
 
-## 3. Pachetul yargs 
-
-- Instalarea pachetului din npm: [Link](https://www.npmjs.com/package/yargs)
-```bash
-npm i yargs
-```
-
 - Exemplu:
 ``` javascript
 import readline from 'readline'; // ES6 import syntax
@@ -55,15 +48,38 @@ rl.question('What is your favorite color? ', (color) => {
   rl.close();
 });
 ```
+## 3. Pachetul yargs 
+
+- Instalarea pachetului din npm: [Link](https://www.npmjs.com/package/yargs)
+```bash
+npm i yargs
+```
+-❗ Cand importam un pachet care standard foloseste CommonJS Modules, trebuie sa fim atenti la importuri.
+
+- Exemplu:
+``` javascript
+// node test.mjs --ships=4 --distance=22
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+
+const argv = yargs(hideBin(process.argv)).argv;
+
+if (argv.ships > 3 && argv.distance < 53.5) {
+  console.log("Plunder more riffiwobbles!");
+} else {
+  console.log("Retreat from the xupptumblers!");
+}
+```
 
 ## 4. Pachetul commander 
-- Instalarea pachetului din npm: [Link](https://www.npmjs.com/package/yargs)
+- Instalarea pachetului din npm: [Link](https://www.npmjs.com/package/commander)
 ```bash
 npm i commander
 ```
 
 - Exemplu:
 ``` javascript
+// node test.mjs split --separator=, word1,word2,word3
 import { Command } from "commander";
 
 const program = new Command();

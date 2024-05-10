@@ -1,5 +1,5 @@
 ---
-title: Exercitiu
+title: Exerciții
 description: Plan de lecție pentru cursul GoIT
 tags:
   - plan
